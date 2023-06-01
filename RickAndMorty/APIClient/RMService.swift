@@ -15,13 +15,17 @@ final class RMService {
     /// Privatized constructor
     private init() {}
     
-    /// Send Rick and Morty API Call
+    /// Send Rick and Morty API Generic Call that can return all type of request
     /// - Parameters:
     ///   - request: Request instance
     ///   - completion: Callback with data or error
-    public func execute(_ request: RMRequest,
-                        // When requesting with RMRequest we will get a result
-                        completion: @escaping (Result<String, Error>) -> Void) {
+    ///   - type: The type of object that we will be constructing
+    public func execute<T: Codable>(
+        _ request: RMRequest,
+        expecting type: T.Type,
+        // When requesting with RMRequest we will get a result based on the request type
+        completion: @escaping (Result<T, Error>) -> Void
+    ) {
         
     }
 }
