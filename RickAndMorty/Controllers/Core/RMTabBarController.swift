@@ -115,6 +115,7 @@
 
 import UIKit
 
+/// Houses the tabs and controls for the initial View
 final class RMTabBarController: UITabBarController {
 
     override func viewDidLoad() {

@@ -31,10 +31,12 @@ public enum RMEndPoint: String {
         }
     }
     
+    /// Allows the user to request an image using the RMEndpoint
+    /// - Returns: Image/Icon used for tabs
     public func toImage() -> UIImage {
         return image
     }
-    // Making this method Optional just so I can keep the example getImageFromString
+    /// Making this method Optional just so I can keep the example getImageFromString
     public static func fromString(_ str: String?) -> RMEndPoint? {
         // if the condition is false
         guard let str = str else { // "" => true => !true => false
