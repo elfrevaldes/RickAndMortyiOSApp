@@ -115,57 +115,6 @@
 
 import UIKit
 
-public enum TabId: String {
-    case character
-    case location
-    case episodes
-    case settings
-    case notAvailable
-    
-    public var image: UIImage {
-        switch self {
-        case .character:
-            return UIImage(systemName: "person") ?? UIImage()
-        case .location:
-            return UIImage(systemName: "globe") ?? UIImage()
-        case .episodes:
-            return UIImage(systemName: "tv") ?? UIImage()
-        case .settings:
-            return UIImage(systemName: "gear") ?? UIImage()
-        default:
-            return UIImage(systemName: "questionmark.circle.fill") ?? UIImage()
-        }
-    }
-    
-    public func toImage() -> UIImage {
-        return image
-    }
-    // Making this method Optional just so I can keep the example getImageFromString
-    public static func fromString(_ str: String?) -> TabId? {
-        // if the condition is false
-        guard let str = str else { // "" => true => !true => false
-            return .notAvailable
-        }
-        
-        // work with lower case and return good value if not available
-        return TabId(rawValue: str.lowercased()) ?? .notAvailable
-    }
-    public static func getImageFromString(_ str: String?) -> UIImage {
-        // transforms the data and initializes to tabId which becomes available in the method
-        guard let tabId = TabId.fromString(str) else {
-            // if it can't perform the operation stop and return
-            return TabId.notAvailable.image
-        }
-        return tabId.image
-        
-//      if let tabId = TabId.fromString(str) {
-//          return tabId.image
-//      } else {
-//          return TabId.notAvailable.image
-//      }
-    }
-}
-
 final class RMTabBarController: UITabBarController {
 
     override func viewDidLoad() {
@@ -176,10 +125,10 @@ final class RMTabBarController: UITabBarController {
     
     private func setUpTabs() {
         let tabsControllersList = [
-            RMCharacterViewController(title: TabId.character.rawValue.capitalized),
-            RMLocationViewController(title: TabId.location.rawValue.capitalized),
-            RMEpisodeViewController(title: TabId.episodes.rawValue.capitalized),
-            RMSettingsViewController(title: TabId.settings.rawValue.capitalized),
+            RMCharacterViewController(title: RMEndPoint.character.rawValue.capitalized),
+            RMLocationViewController(title: RMEndPoint.location.rawValue.capitalized),
+            RMEpisodeViewController(title: RMEndPoint.episode.rawValue.capitalized),
+            RMSettingsViewController(title: RMEndPoint.setting.rawValue.capitalized)
             // RMSettingsViewController(title: "Test") // This was to check that our vc can take anything
         ]
         
@@ -188,7 +137,7 @@ final class RMTabBarController: UITabBarController {
             viewController.navigationItem.largeTitleDisplayMode = .automatic
             viewController.tabBarItem = UITabBarItem(
                 title: viewController.title,
-                image: TabId.getImageFromString(viewController.title), // This variable is Optional and that is what makes
+                image: RMEndPoint.getImageFromString(viewController.title), // This variable is Optional and that is what makes
                 tag: index)                                            // all methods accept optionals
         }
         
