@@ -8,9 +8,9 @@
 import Foundation
 
 /// Primary API service object to get Rick and Morty data
-final class RMService {
+final class RMNetwork {
     /// Shared singleton instance
-    static let shared = RMService()
+    static let service = RMNetwork()
     
     enum RMServiceError: Error {
         case failedToCreateRequest

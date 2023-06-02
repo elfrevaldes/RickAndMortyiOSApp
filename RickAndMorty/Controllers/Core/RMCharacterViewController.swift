@@ -21,7 +21,7 @@ final class RMCharacterViewController: UIViewController {
                 URLQueryItem(name: "status", value: "alive")
             ]
         )
-        RMService.shared.execute(request, expecting: RMCharacter.self) { result in
+        RMNetwork.service.execute(request, expecting: RMCharacter.self) { result in
             switch result {
             case .success:
                 // This case will handle the data agregation 
