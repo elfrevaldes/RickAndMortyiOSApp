@@ -15,23 +15,23 @@ final class RMCharacterViewController: UIViewController {
         
         let request = RMRequest(
             endPoint: .character,
-            //pathComponents: ["1"],
+            // pathComponents: ["1"],
             queryParams: [
-                URLQueryItem(name: "name", value: "rick")
+                URLQueryItem(name: "name", value: "rick"),
                 URLQueryItem(name: "status", value: "alive")
             ]
         )
-        print(request.url)
-        
-        RMService.shared.execute(request, expecting: RMCharacter.self) {result in
+        RMService.shared.execute(request, expecting: RMCharacter.self) { result in
             switch result {
-            case .success(RMCharacter):
-                // Do something with the result
-            case .failure(Error):
-                // Handle the error case
+            case .success:
+                // This case will handle the data agregation 
+                break
+            case .failure(let error):
+                print(String(describing: error))
             }
         }
     }
+        
     init(title: String) {
         super.init(nibName: nil, bundle: nil)
         self.title = title

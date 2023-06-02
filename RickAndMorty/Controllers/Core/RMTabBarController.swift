@@ -129,8 +129,8 @@ final class RMTabBarController: UITabBarController {
             RMCharacterViewController(title: RMEndPoint.character.rawValue.capitalized),
             RMLocationViewController(title: RMEndPoint.location.rawValue.capitalized),
             RMEpisodeViewController(title: RMEndPoint.episode.rawValue.capitalized),
-            RMSettingsViewController(title: RMEndPoint.setting.rawValue.capitalized)
-            // RMSettingsViewController(title: "Test") // This was to check that our vc can take anything
+            RMSettingsViewController(title: RMEndPoint.setting.rawValue.capitalized),
+            RMSettingsViewController(title: "Anything") // This was to check that our vc can take anything
         ]
         
         // setup title and image for tabs

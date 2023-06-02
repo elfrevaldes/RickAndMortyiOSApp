@@ -16,9 +16,10 @@ final class RMRequest {
     }
     // EndPoint that we are trying to reach
     private let endPoint: RMEndPoint
-    // Query parameters
+    // Query arguments
     private let queryParams: [URLQueryItem]
     // Folder Like for the request
+    /// Collection of modification of our path
     private let pathComponents: [String]
     
     
@@ -47,13 +48,21 @@ final class RMRequest {
         return string
     }
     
+    public var httpMethod: String {
+        return "GET"
+    }
     
-    /// Something
+    /// Computer  & constructed API url
     public var url: URL? {
         return URL(string: urlString)
     }
     
     
+    /// Constructor for our Request
+    /// - Parameters:
+    ///   - endPoint: Target endpoint
+    ///   - pathComponents: Collection used to request specific data
+    ///   - queryParams: Simple modifiers for our request to filter for specific data
     public init(endPoint: RMEndPoint, pathComponents: [String] = [], queryParams: [URLQueryItem] = []) {
         self.endPoint = endPoint
         self.pathComponents = pathComponents
