@@ -8,12 +8,13 @@
 import Foundation
 
 /// Primary API service object to get Rick and Morty data
-final class RMNetwork {
+final class RMNetwork: Decodable {
     /// Shared singleton instance
     static let service = RMNetwork()
     
     enum RMServiceError: Error {
         case failedToCreateRequest
+        case failedToGetData
     }
     
     /// Send Rick and Morty API Generic Call that can return all type of request
@@ -30,16 +31,17 @@ final class RMNetwork {
             completion(.failure(RMServiceError.failedToCreateRequest))
             return
         }
-        // send of the request
+        // send of the request                                  _ is the response
         let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+            // this is a and statement (we have data and no error)
             guard let data = data, error == nil else {
                 completion(.failure(error ?? RMServiceError.failedToCreateRequest))
                 return
             }
             // Decode response
             do {
-                let json = try JSONSerialization.jsonObject(with: data)
-                print(String(describing: json))
+                let result = try JSONDecoder().decode(type.self, from: data)
+                completion(.success(result))
             } catch {
                 completion(.failure(error))
             }

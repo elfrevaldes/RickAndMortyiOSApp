@@ -13,19 +13,11 @@ final class RMCharacterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let request = RMRequest(
-            endPoint: .character,
-            // pathComponents: ["1"],
-            queryParams: [
-                URLQueryItem(name: "name", value: "rick"),
-                URLQueryItem(name: "status", value: "alive")
-            ]
-        )
-        RMNetwork.service.execute(request, expecting: RMCharacter.self) { result in
+        RMNetwork.service.execute(.characterListReq,
+                                  expecting: RMGetAllCharectersRespose.self) { result in
             switch result {
-            case .success:
-                // This case will handle the data agregation 
-                break
+            case .success(let model):
+                print(String(describing: model))
             case .failure(let error):
                 print(String(describing: error))
             }

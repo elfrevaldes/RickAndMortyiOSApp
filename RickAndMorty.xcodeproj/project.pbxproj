@@ -26,6 +26,7 @@
 		3F171CC82A293C8000E25F31 /* RMSingleLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F171CC72A293C8000E25F31 /* RMSingleLocation.swift */; };
 		3F171CCA2A293E8600E25F31 /* RMCharacterStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F171CC92A293E8600E25F31 /* RMCharacterStatus.swift */; };
 		3F171CCC2A293F1800E25F31 /* RMCharacterGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F171CCB2A293F1800E25F31 /* RMCharacterGender.swift */; };
+		3F8F9F312A2F88230023EBBA /* GetAllCharactersReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F9F302A2F88230023EBBA /* GetAllCharactersReponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		3F171CC72A293C8000E25F31 /* RMSingleLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSingleLocation.swift; sourceTree = "<group>"; };
 		3F171CC92A293E8600E25F31 /* RMCharacterStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterStatus.swift; sourceTree = "<group>"; };
 		3F171CCB2A293F1800E25F31 /* RMCharacterGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterGender.swift; sourceTree = "<group>"; };
+		3F8F9F302A2F88230023EBBA /* GetAllCharactersReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllCharactersReponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +87,6 @@
 				3F171CAD2A27A68E00E25F31 /* Views */,
 				3F171CAC2A27A67300E25F31 /* APIClient */,
 				3F171CAB2A27A66400E25F31 /* Resouces */,
-				3F171CAA2A279DDD00E25F31 /* New Group */,
 				3F171CA92A279DD200E25F31 /* Managers */,
 				3F171CA82A279DC800E25F31 /* ViewModels */,
 				3F171CAE2A27A69600E25F31 /* Models */,
@@ -115,13 +116,6 @@
 			children = (
 			);
 			path = Managers;
-			sourceTree = "<group>";
-		};
-		3F171CAA2A279DDD00E25F31 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		3F171CAB2A27A66400E25F31 /* Resouces */ = {
@@ -155,13 +149,8 @@
 		3F171CAE2A27A69600E25F31 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3F171CAF2A27A79D00E25F31 /* RMLocation.swift */,
-				3F171CB12A27A7AF00E25F31 /* RMCharacter.swift */,
-				3F171CB32A27A7C600E25F31 /* RMEpisode.swift */,
-				3F171CC52A293BC500E25F31 /* RMOrigin.swift */,
-				3F171CC72A293C8000E25F31 /* RMSingleLocation.swift */,
-				3F171CC92A293E8600E25F31 /* RMCharacterStatus.swift */,
-				3F171CCB2A293F1800E25F31 /* RMCharacterGender.swift */,
+				3F8F9F2F2A2F87E90023EBBA /* APIResponseTypes */,
+				3F8F9F2E2A2F87CC0023EBBA /* DataTypes */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -176,6 +165,28 @@
 				3F171CBC2A27A8B700E25F31 /* RMSettingsViewController.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		3F8F9F2E2A2F87CC0023EBBA /* DataTypes */ = {
+			isa = PBXGroup;
+			children = (
+				3F171CAF2A27A79D00E25F31 /* RMLocation.swift */,
+				3F171CB12A27A7AF00E25F31 /* RMCharacter.swift */,
+				3F171CB32A27A7C600E25F31 /* RMEpisode.swift */,
+				3F171CC52A293BC500E25F31 /* RMOrigin.swift */,
+				3F171CC72A293C8000E25F31 /* RMSingleLocation.swift */,
+				3F171CC92A293E8600E25F31 /* RMCharacterStatus.swift */,
+				3F171CCB2A293F1800E25F31 /* RMCharacterGender.swift */,
+			);
+			path = DataTypes;
+			sourceTree = "<group>";
+		};
+		3F8F9F2F2A2F87E90023EBBA /* APIResponseTypes */ = {
+			isa = PBXGroup;
+			children = (
+				3F8F9F302A2F88230023EBBA /* GetAllCharactersReponse.swift */,
+			);
+			path = APIResponseTypes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +293,7 @@
 				3F171CB42A27A7C600E25F31 /* RMEpisode.swift in Sources */,
 				3F171C962A27981400E25F31 /* SceneDelegate.swift in Sources */,
 				3F171CBD2A27A8B700E25F31 /* RMSettingsViewController.swift in Sources */,
+				3F8F9F312A2F88230023EBBA /* GetAllCharactersReponse.swift in Sources */,
 				3F171CC42A2935D900E25F31 /* RMEndPoint.swift in Sources */,
 				3F171CC02A29351400E25F31 /* RMNetwork.swift in Sources */,
 				3F171CB02A27A79D00E25F31 /* RMLocation.swift in Sources */,
