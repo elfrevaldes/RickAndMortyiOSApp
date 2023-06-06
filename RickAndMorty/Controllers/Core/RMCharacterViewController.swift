@@ -17,7 +17,9 @@ final class RMCharacterViewController: UIViewController {
                                   expecting: RMGetAllCharectersRespose.self) { result in
             switch result {
             case .success(let model):
-                print(String(describing: model))
+                // Accessing data
+                print("Total: " + String(model.info.count))
+                print("Page result count: " + String(model.results.count))
             case .failure(let error):
                 print(String(describing: error))
             }
