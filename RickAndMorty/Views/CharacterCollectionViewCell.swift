@@ -68,10 +68,6 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
              | status|
              */
         ])
-        // Testing purpose
-        nameLabel.backgroundColor = .green
-        statusLabel.backgroundColor = .orange
-        imageView.backgroundColor = .systemOrange
     }
     
     override func prepareForReuse() {
