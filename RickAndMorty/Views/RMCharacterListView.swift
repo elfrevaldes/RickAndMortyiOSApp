@@ -9,7 +9,7 @@ import UIKit
 
 
 /// View that handles a list of characters
-final class CharacterListView: UIView {
+final class RMCharacterListView: UIView {
     
     private let viewModel = CharacterListViewViewModel()
     private let service = RMCharacterService()

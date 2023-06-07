@@ -1,6 +1,7 @@
 disabled_rules:
   - trailing_whitespace
   - trailing_newline
+  - todo
 
 vertical_whitespace:
   max_empty_lines: 4
@@ -9,3 +10,9 @@ line_length:
   warning: 180
   error: 180
 
+opt_in_rules:
+- expiring_todo
+
+
+expiring_todo:
+  approaching_expiry_threshold: 3
