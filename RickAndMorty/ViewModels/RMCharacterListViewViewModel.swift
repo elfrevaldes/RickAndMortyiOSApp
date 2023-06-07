@@ -14,8 +14,16 @@ final class RMCharacterListViewViewModel: NSObject, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // deque and return a single cell
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .systemGreen
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: CharacterCollectionViewCell.identifier,
+            for: indexPath
+        ) as? CharacterCollectionViewCell else {
+            fatalError("Unsupported cell")
+        }
+        let viewModel = CharacterCellViewModel(characterName: "Elfre",
+                                                    characterStatus: .alive,
+                                                    characterImageUrl: nil)
+        cell.configure(with: viewModel)
         return cell
     }
     /// This method specifies the high and width of our viewColection

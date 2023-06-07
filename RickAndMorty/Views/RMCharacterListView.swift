@@ -11,7 +11,7 @@ import UIKit
 /// View that handles a list of characters
 final class RMCharacterListView: UIView {
     
-    private let viewModel = CharacterListViewViewModel()
+    private let viewModel = RMCharacterListViewViewModel()
     private let service = RMCharacterService()
     
     private let spinner: UIActivityIndicatorView = {
@@ -62,7 +62,9 @@ final class RMCharacterListView: UIView {
         collectionView.isHidden = true
         collectionView.alpha = 0
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView.register(
+            CharacterCollectionViewCell.self,
+            forCellWithReuseIdentifier: CharacterCollectionViewCell.identifier)
         return collectionView
     }()
     

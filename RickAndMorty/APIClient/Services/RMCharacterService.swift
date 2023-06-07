@@ -21,4 +21,22 @@ struct RMCharacterService {
             }
         }
     }
+    
+    func fetchImage(characterImageUrl: URL?, completion: @escaping (Result<Data, Error>) -> Void) {
+        // TODO: [06/15/2023] Fix me by now We need to cash image so we do not have to load images again and again
+        guard let url = characterImageUrl else {
+            completion(.failure(URLError(.badURL)))
+            return
+        }
+        let request = URLRequest(url: url)
+        
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            guard let data = data, error == nil else {
+                completion(.failure(error ?? URLError(.badServerResponse)))
+                return
+            }
+            completion(.success(data))
+        }
+        task.resume()
+    }
 }
