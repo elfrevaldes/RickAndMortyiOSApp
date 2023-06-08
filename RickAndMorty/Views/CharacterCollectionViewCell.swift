@@ -9,6 +9,7 @@ import UIKit
 
 final class CharacterCollectionViewCell: UICollectionViewCell {
     static let identifier = "CharacterCollectionViewCell"
+    private let service = RMCharacterService()
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -78,7 +79,20 @@ final class CharacterCollectionViewCell: UICollectionViewCell {
     }
     
     public func configure(with viewModel: CharacterCellViewModel) {
+        nameLabel.text = viewModel.characterName
+        statusLabel.text = viewModel.characterStatusText
         
+        service.fetchImage(characterImageUrl: viewModel.characterImageUrl) { [weak self] result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self?.imageView.image = image
+                }
+            case .failure(let error):
+                print(String(describing: error))
+            }
+        }
     }
     
     required init?(coder: NSCoder) {

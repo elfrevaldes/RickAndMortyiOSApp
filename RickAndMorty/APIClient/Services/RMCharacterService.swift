@@ -14,7 +14,7 @@ struct RMCharacterService {
             switch result {
             case .success(let model):
                 // Accessing data
-                print("Total: " + String(model.info.count))
+                print("Example image url: " + String(model.results.first?.image ?? "No image"))
                 print("Page result count: " + String(model.results.count))
             case .failure(let error):
                 print(String(describing: error))

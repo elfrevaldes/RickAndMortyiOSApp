@@ -20,9 +20,11 @@ final class RMCharacterListViewViewModel: NSObject, UICollectionViewDataSource, 
         ) as? CharacterCollectionViewCell else {
             fatalError("Unsupported cell")
         }
+        
+        // Getting a character to display
         let viewModel = CharacterCellViewModel(characterName: "Elfre",
                                                     characterStatus: .alive,
-                                                    characterImageUrl: nil)
+                                                    characterImageUrl: URL(string: "https://rickandmortyapi.com/api/character/avatar/1.jpeg"))
         cell.configure(with: viewModel)
         return cell
     }

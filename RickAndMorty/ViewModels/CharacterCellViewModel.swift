@@ -9,8 +9,8 @@ import Foundation
 
 struct CharacterCellViewModel {
     public let characterName: String
+    public let characterImageUrl: URL?
     private let characterStatus: RMCharacterStatus
-    private let characterImageUrl: URL?
     
     init(
         characterName: String,
